@@ -27,7 +27,9 @@ hosts:
   - docs-index
   - contract-discovery
   - well-known
+  - vendor-detect
   types:
+  - PrivacyPolicy
   - Website
   - Documentation
   - Blog
@@ -36,6 +38,8 @@ hosts:
   - TermsOfService
   serves:
   - docs
+  - cdn
+  vendor: cloudflare
   registrable_domain: simceptor.com
   role: website
   relation: own
