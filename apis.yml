@@ -19,5 +19,7 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/simceptor-domain-security.yml
 - type: Website
   url: https://simceptor.com/
