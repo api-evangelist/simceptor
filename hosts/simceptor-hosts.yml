@@ -1,0 +1,41 @@
+generated: '2026-10-19'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 2
+  own: 2
+  other_domain: 0
+  platform: 0
+  roles:
+  - api
+  - website
+hosts:
+- host: api.simceptor.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: simceptor.com
+  role: api
+  relation: own
+- host: simceptor.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - Website
+  - Documentation
+  - Blog
+  - SignUp
+  - Login
+  - TermsOfService
+  serves:
+  - docs
+  registrable_domain: simceptor.com
+  role: website
+  relation: own

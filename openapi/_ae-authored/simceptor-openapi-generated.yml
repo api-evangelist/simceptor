@@ -1,0 +1,212 @@
+openapi: 3.1.0
+info:
+  title: Simceptor API
+  version: '2026-10-19'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-19: 9 operation(s) read from 3 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Simceptor has published no machine-readable contract that the
+    pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 1
+    documentation: 8
+    pages-with-code: 3
+    pages-read: 3
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-19'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://simceptor.com/docs/stateful
+  - https://simceptor.com/docs/mcp
+  - https://simceptor.com/docs/environments
+paths:
+  /api/mcp/sse:
+    get:
+      operationId: get_api_mcp_sse
+      tags:
+      - Api
+      summary: GET /api/mcp/sse
+      x-source: https://simceptor.com/docs/mcp
+      parameters:
+      - name: token
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl curl -i -N "https://simceptor.com/api/mcp/sse?token=<your-personal-access-token>" Expected: Stream response containing
+          event:endpoint with a session ID. Your AI client is now ready to send messages. Authentication 1. Personal Access Token (PAT) Best for
+          local development (Cursor, Claude Desktop, Windsurf). Created directly via your dashboard. Token starts with simcept_pat_... Can be
+          managed/r'
+  /inquiry:
+    post:
+      operationId: post_inquiry
+      tags:
+      - Inquiry
+      summary: Create Ticket (POST /inquiry) Initializes the ticket.
+      x-source: https://simceptor.com/docs/stateful
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /inquiry/{id}:
+    get:
+      operationId: get_inquiry_id
+      tags:
+      - Inquiry
+      summary: Read Initial Ticket (GET /inquiry/:id) If the state is empty or `status == "open"`, it returns the default response payload.
+      x-source: https://simceptor.com/docs/stateful
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetInquiryIdResponse'
+      x-evidence:
+        kind: documentation
+  /inquiry/{id}/read:
+    post:
+      operationId: post_inquiry_id_read
+      tags:
+      - Inquiry
+      summary: 'Mark Read (POST /inquiry/:id/read) Admin opens the ticket. Calling this endpoint transitions the state: updates `status = "seen"`.'
+      x-source: https://simceptor.com/docs/stateful
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /m/your-mock:
+    get:
+      operationId: get_m_your_mock
+      tags:
+      - M
+      summary: Simceptor Docs — Multi-Environment & Environment Variables S
+      description: Example endpoint used to demonstrate environment overrides via header, query parameter, or dashboard selection.
+      x-source: https://simceptor.com/docs/environments
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /orders:
+    post:
+      operationId: post_orders
+      tags:
+      - Orders
+      summary: Create Order (POST /orders) Simulates placing an order. Sets `payment_status = "pending"` to represent an unpaid invoice.
+      x-source: https://simceptor.com/docs/stateful
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /orders/{id}:
+    get:
+      operationId: get_orders_id
+      tags:
+      - Orders
+      summary: Check Paid Order Status (GET /orders/:id) Frontend fetches the order status again to unlock premium user content.
+      x-source: https://simceptor.com/docs/stateful
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrdersIdResponse'
+      x-evidence:
+        kind: documentation
+  /orders/{id}/checkout:
+    post:
+      operationId: post_orders_id_checkout
+      tags:
+      - Orders
+      summary: Start Checkout (POST /orders/:id/checkout) User enters checkout card details screen. Transition payment state to `"processing"`.
+      x-source: https://simceptor.com/docs/stateful
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /orders/{id}/pay:
+    post:
+      operationId: post_orders_id_pay
+      tags:
+      - Orders
+      summary: Trigger Payment (POST /orders/:id/pay) Executes payment. Transitions state variable `payment_status = "paid"`.
+      x-source: https://simceptor.com/docs/stateful
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetInquiryIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Ticket identifier
+        status:
+          type: string
+          description: Ticket status
+        messages:
+          type: array
+          description: List of messages
+    GetOrdersIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Order identifier
+        status:
+          type: string
+          description: Payment status
+        amount:
+          type: integer
+          description: Order amount in cents
+tags:
+- name: Api
+- name: Inquiry
+- name: M
+- name: Orders

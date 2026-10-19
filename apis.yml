@@ -1,25 +1,111 @@
 aid: simceptor
+
 name: Simceptor
-description: 'Simceptor is a company surfaced via the API Evangelist harvest backlog (source: g2-catalog)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://simceptor.com/og-image.jpg
+
+description: Simceptor provides a free no‑code mock API server that supports REST, SOAP, and WSDL, with conditional rules, AI‑native mocking via
+  Model Context Protocol (MCP), and a playground for developers. It enables rapid creation, testing, and updating of mock endpoints, offering
+  features like latency simulation, dynamic faker data, webhook forwarding, multi‑environment support, and integration with AI assistants such
+  as Claude and Cursor.
+
 url: https://raw.githubusercontent.com/api-evangelist/simceptor/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:g2-catalog
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-19 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-18'
+
 modified: '2026-10-18'
+
 tags:
 - Company
-apis: []
+- Mock API
+- No-Code
+- AI Integration
+- Developer Tools
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Spectral
+  url: rules/simceptor-rules.yml
+- type: JSONLD
+  url: json-ld/simceptor-context.jsonld
+- type: Vocabulary
+  url: vocabulary/simceptor-vocabulary.yml
+- type: DataModel
+  url: data-model/simceptor-data-model.yml
+- type: Sandbox
+  url: sandbox/simceptor-sandbox.yml
+- type: Conformance
+  url: conformance/simceptor-conformance.yml
+- type: MCPServer
+  url: mcp/simceptor-mcp.yml
+- type: WellKnown
+  url: well-known/simceptor-well-known.yml
+- type: Hosts
+  url: hosts/simceptor-hosts.yml
+- type: Vendors
+  url: vendors/simceptor-vendors.yml
+- type: PrivacyPolicy
+  url: https://simceptor.com/privacy
 - type: DomainSecurity
   url: security/simceptor-domain-security.yml
 - type: Website
   url: https://simceptor.com/
+- type: Documentation
+  url: https://simceptor.com/docs
+- type: Blog
+  url: https://simceptor.com/blog
+- type: SignUp
+  url: https://simceptor.com/register
+- type: Login
+  url: https://simceptor.com/login
+- type: TermsOfService
+  url: https://simceptor.com/terms
+
+apis:
+- name: Simceptor Mock API
+  description: Simceptor provides a mock API platform with REST, SOAP, WSDL, and AI‑native features.
+  humanURL: https://simceptor.com/docs
+  aid: simceptor:simceptor-mock-api
+- aid: simceptor:simceptor-api
+  name: Simceptor API
+  description: 'Simceptor API as documented publicly: 9 operations. Contract generated from the documentation by API Evangelist (2026-10-19);
+
+    not the provider''s own document.'
+  humanURL: https://simceptor.com/docs/stateful
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/simceptor-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/simceptor-get-orders-id-response-schema.json
+  - type: JSONSchema
+    url: json-schema/simceptor-get-inquiry-id-response-schema.json
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: Documentation pages are rendered via JavaScript (Next.js), preventing machine‑readable spec discovery.
+  evidence:
+  - url: https://simceptor.com/docs/openapi
+    status: 200
+  checked: '2026-10-19'
+x-enrichment:
+  date: '2026-10-19'
+  status: enriched
+  artifacts_added: 19
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

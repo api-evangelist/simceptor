@@ -1,0 +1,13 @@
+{
+  "generated": "2026-10-19",
+  "method": "probed",
+  "source": "https://simceptor.com/",
+  "deployment": {
+    "mode": "remote",
+    "endpoint": "https://api.simceptor.com/mcp",
+    "install": null,
+    "package": null,
+    "auth": "unknown",
+    "verified": "probed"
+  }
+}

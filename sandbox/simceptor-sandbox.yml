@@ -1,0 +1,12 @@
+generated: '2026-10-19'
+method: searched
+source: https://simceptor.com/docs/latency
+docs: https://simceptor.com/docs/latency
+description: >-
+  Simceptor provides a sandbox environment where developers can simulate network latency and test API behavior under delayed responses.
+sandbox:
+  test_features:
+    - name: Latency Simulation
+      description: Inject custom delays in milliseconds directly on endpoint configs or conditional rules.
+      example: "Set Delay = 3000 for 3 seconds"
+      docs_url: https://simceptor.com/docs/latency

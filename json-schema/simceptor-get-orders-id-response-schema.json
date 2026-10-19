@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/simceptor/main/json-schema/simceptor-get-orders-id-response-schema.json",
+  "title": "GetOrdersIdResponse",
+  "x-generated": "2026-10-19",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/simceptor-openapi-generated.yml#/components/schemas/GetOrdersIdResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Order identifier"
+    },
+    "status": {
+      "type": "string",
+      "description": "Payment status"
+    },
+    "amount": {
+      "type": "integer",
+      "description": "Order amount in cents"
+    }
+  }
+}

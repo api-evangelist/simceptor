@@ -1,0 +1,41 @@
+generated: '2026-10-19'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/simceptor-openapi-generated.yml
+vocabulary:
+  name: Simceptor Domain Vocabulary
+  description: 'Terms declared by Simceptor''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-19'
+  terms:
+  - term: GetInquiryIdResponse
+    definition: 'Object declared by the contract with fields: id, status, messages.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/simceptor-openapi-generated.yml#/components/schemas/GetInquiryIdResponse
+  - term: GetOrdersIdResponse
+    definition: 'Object declared by the contract with fields: id, status, amount.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/simceptor-openapi-generated.yml#/components/schemas/GetOrdersIdResponse
+  - term: Api
+    definition: 'Resource group in the contract; its operation GET /api/mcp/sse: GET /api/mcp/sse'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/simceptor-openapi-generated.yml
+  - term: Inquiry
+    definition: 'Resource group in the contract; its operation POST /inquiry: Create Ticket (POST /inquiry) Initializes the ticket.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/simceptor-openapi-generated.yml
+  - term: M
+    definition: 'Resource group in the contract; its operation GET /m/your-mock: Example endpoint used to demonstrate environment overrides via
+      header, query parameter, or dashboard selection.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/simceptor-openapi-generated.yml
+  - term: Orders
+    definition: 'Resource group in the contract; its operation POST /orders: Create Order (POST /orders) Simulates placing an order.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/simceptor-openapi-generated.yml

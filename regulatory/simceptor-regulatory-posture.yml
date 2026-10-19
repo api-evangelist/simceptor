@@ -1,0 +1,11 @@
+generated: '2026-10-19'
+method: probed
+source: https://simceptor.com/terms
+signals:
+  data_retention:
+    evidence:
+      - source: https://simceptor.com/terms
+        http_status: 200
+        fetched: "true"
+        quote: "We make no warranties regarding uptime, data retention of request logs, and data persistence."
+    note: The provider does not guarantee how long request logs are retained.
